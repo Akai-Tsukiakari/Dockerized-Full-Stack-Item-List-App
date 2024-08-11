@@ -1,25 +1,13 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    margin-top: 50px;
-}
-
-h1 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/items')
+        .then(response => response.json())
+        .then(data => {
+            const itemList = document.getElementById('item-list');
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.name;
+                itemList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error fetching items:', error));
+});
