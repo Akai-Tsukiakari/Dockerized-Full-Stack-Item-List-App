@@ -20,7 +20,14 @@ Follow these steps to get the application up and running:
    ```bash
    git clone https://github.com/yourusername/dockerized-fullstack-itemlist.git
    cd dockerized-fullstack-itemlist
+Build and start the services using Docker Compose:
 
+bash
+Copy code
+docker-compose up --build
+Open your web browser and go to http://localhost:8080 to see the frontend of the application.
+
+The application should display a list of items fetched from the backend API.
 
 Project Components
 Frontend
